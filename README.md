@@ -11,7 +11,7 @@ I needed a simple and lightweight xmpp -> smpt gateway, but could not find a goo
 - No–frills
 - Support for subject & body as specified in [RFC 3921](http://xmpp.org/rfcs/rfc3921.html#stanzas-extended) and [RFC 6121](http://tools.ietf.org/html/rfc6121#section-5.2)
 - Support for html content: [XEP 0071](http://www.xmpp.org/extensions/xep-0071.html)
-- Support for [XEP-0106: JID Escaping](http://xmpp.org/extensions/xep-0106.html) as email adress e.g.user@host.com is represented in a jid as user\40host.com@smtp.example.com
+- Support for [XEP-0106: JID Escaping](http://xmpp.org/extensions/xep-0106.html) as email adress e.g. `user@host.com` is represented as jid `user\40host.com@smtp.example.com`
 - Outbound SMTP gateway only
 - No templating because we support XEP 0071
 - Run as [XEP-0114: Jabber Component](http://xmpp.org/extensions/xep-0114.html) or [XEP-0220: Server Dialback](http://xmpp.org/extensions/xep-0220.html)
