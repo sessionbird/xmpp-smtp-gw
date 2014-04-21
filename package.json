@@ -2,8 +2,18 @@
   "name": "xmpp-smtp-gw",
   "description": "xmpp smtp gateway",
   "version": "0.1.0",
-  "main": "",
-  "author": "Christoph Hartmann <chris@lollyrock.com>",
+  "author": {
+    "name": "Christoph Hartmann",
+    "email": "chris@lollyrock.com",
+    "url": "http://lollyrock.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:chris-rock/xmpp-smtp-gw.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chris-rock/xmpp-smtp-gw/issues"
+  },
   "dependencies": {
     "node-xmpp-core": "1.0.0-alpha1",
     "node-xmpp-server": "1.0.0-alpha1",
@@ -25,7 +35,9 @@
     "supertest": "0.8.1",
     "node-xmpp-client": "1.0.0-alpha2"
   },
-  "scripts": {},
+  "scripts": {
+    "test": "grunt test --verbose"
+  },
   "engines": {
     "node": "0.10.x",
     "npm": "1.2.x"
