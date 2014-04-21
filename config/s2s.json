@@ -1,0 +1,25 @@
+{
+    // type of server. a component normaly runs on the same host
+    // s2s on other.
+    "type": "S2S", // or 'S2S'
+    // domain of the component or s2s
+    "domain" : "xmppsmtpgateway.com",
+    // all emails should be send with the following sender
+    "sender" : "John Doe <johndoe@example.com>",
+    // configuration for smtp gateway
+    "mailer": {
+        "transport": "SMTP",
+        "config": {
+            // hostname
+            "host": "smtp.gmail.com",
+            // use SSL
+            "secureConnection": false,
+            // SMTP port
+            "port": 25,
+            "auth": {
+                "user": "user@gmail.com",
+                "pass": "yourpasswort"
+            }
+        }
+    }
+}
