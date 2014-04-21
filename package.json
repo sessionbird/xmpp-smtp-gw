@@ -1,0 +1,33 @@
+{
+  "name": "xmpp-smtp-gw",
+  "description": "xmpp smtp gateway",
+  "version": "0.1.0",
+  "main": "",
+  "author": "Christoph Hartmann <chris@lollyrock.com>",
+  "dependencies": {
+    "node-xmpp-core": "1.0.0-alpha1",
+    "node-xmpp-server": "1.0.0-alpha1",
+    "node-xmpp-component": "1.0.0-alpha1",
+    "ltx": "0.2.0",
+    "node-uuid": "1.4.1",
+    "bluebird": "~1.0.0",
+    "nodemailer" : "0.6.3",
+    "pem" : "1.4.0",
+    "strip-json-comments": "~0.1.1",
+    "debug" : "0.8.0"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-jshint": "~0.7.2",
+    "grunt-mocha-cli": "~1.3.0",
+    "grunt-retire": "~0.1.20",
+    "should": "2.0.2",
+    "supertest": "0.8.1",
+    "node-xmpp-client": "1.0.0-alpha2"
+  },
+  "scripts": {},
+  "engines": {
+    "node": "0.10.x",
+    "npm": "1.2.x"
+  }
+}
