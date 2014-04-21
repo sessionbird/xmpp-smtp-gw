@@ -1,0 +1,7 @@
+<message 
+    id='aac0a' 
+    to='romeo\40example.com@xmppsmtpgateway.com'
+    from='me@example.com' xmlns:stream='http://etherx.jabber.org/streams'>
+    <subject>I implore you!</subject>
+    <body>Wherefore art thou, Romeo?</body>
+</message>"
