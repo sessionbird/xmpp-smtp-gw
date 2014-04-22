@@ -6,7 +6,7 @@ A xmpp gateway to send emails from your xmpp messenger.
 
 ## Description
 
-I needed a simple and lightweight xmpp -> smpt gateway, but could not find a good one. This module enables me to send simple emails right from my chat messenger.
+I needed a simple and lightweight xmpp -> smtp gateway, but could not find a good one. This module enables me to send simple emails right from my chat messenger.
 
 ## Architecture 
 
