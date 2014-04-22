@@ -69,7 +69,7 @@ Afterwards you need to add the following entry to your hosts file in `/etc/hosts
 
 Once you got this try to `ping example.com` and you should see a connection to 192.168.55.10. As a next step you need to configure the SMTP server in `config/component.json` and `config/s2s.json`. Just add the server and the mailbox credentials in `mailer.config`
 
-Now we are ready to prepare the XMPP messages. Configure `test/client/component/message.xml` and `test/client/s2s/message.xml` with a proper target. e.g. change `romeo\40example.com@smtp.example.com` to `youremail@smpt.example.com`. The local part of the jid needs to be escaped according to [XEP-0106: JID Escaping](http://xmpp.org/extensions/xep-0106.html).
+Now we are ready to prepare the XMPP messages. Configure `test/client/component/message.xml` and `test/client/s2s/message.xml` with a proper target. e.g. change `romeo\40example.com@smtp.example.com` to `youremail@smtp.example.com`. The local part of the jid needs to be escaped according to [XEP-0106: JID Escaping](http://xmpp.org/extensions/xep-0106.html).
 
 **Test the XMPP Component**
 
