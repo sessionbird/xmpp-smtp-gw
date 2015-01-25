@@ -334,8 +334,4 @@ describe('XMPP SMTP Gateway', function () {
         mailer.stanza(stanza);
 
     });
-
-    
-
-
 });
