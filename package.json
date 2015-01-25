@@ -1,7 +1,7 @@
 {
   "name": "xmpp-smtp-gw",
   "description": "xmpp smtp gateway",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": {
     "name": "Christoph Hartmann",
     "email": "chris@lollyrock.com",
