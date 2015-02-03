@@ -3,20 +3,20 @@
 'use strict';
 
 var fs = require('fs'),
-    path = require('path'),
-    argv = process.argv,
-    stripJsonComments = require('strip-json-comments'),
-    debug = require('debug')('smtp:bin'),
-    SmtpS2S = require('../lib/s2s'),
-    SmtpComponent = require('../lib/component'),
-    Mailer = require('../lib/mailer');
+  path = require('path'),
+  argv = process.argv,
+  stripJsonComments = require('strip-json-comments'),
+  debug = require('debug')('smtp:bin'),
+  SmtpS2S = require('../lib/s2s'),
+  SmtpComponent = require('../lib/component'),
+  Mailer = require('../lib/mailer');
 
 // find settings
-var configpath = argv[2] || '';
+var configpath = argv[2] ||  '';
 var search = [];
 
 function gethomedir() {
-    return process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE;
+  return process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE;
 }
 
 // configure search paths
@@ -32,84 +32,82 @@ var configfile = null;
 var stats = null;
 
 for (var i = 0, l = search.length; i < l; i = i + 1) {
-    try {
-        var file = search[i];
-        // Query the entry
-        stats = fs.lstatSync(file);
+  try {
+    var file = search[i];
+    // Query the entry
+    stats = fs.lstatSync(file);
 
-        // Is it a directory?
-        if (stats.isFile()) {
-            configfile = file;
+    // Is it a directory?
+    if (stats.isFile()) {
+      configfile = file;
 
-            // abort after first success
-            break;
-        }
-    } catch (e) {
-        // console.error(e);
+      // abort after first success
+      break;
     }
+  } catch (e) {
+    // console.error(e);
+  }
 }
 
 if (!configfile) {
-    console.log('Could not find the config in one of the following locations:');
-    search.forEach(function (x) {
-        console.log(' - ' + x);
-    });
-    process.exit(1);
+  console.log('Could not find the config in one of the following locations:');
+  search.forEach(function (x) {
+    console.log(' - ' + x);
+  });
+  process.exit(1);
 } else {
-    console.log('use config: ' + configfile);
+  console.log('use config: ' + configfile);
 }
 
 // read config
 var config = null;
 
 try {
-    var filecontent = fs.readFileSync(configfile);
-    var stripped = stripJsonComments(filecontent.toString('utf8'));
-    config = JSON.parse(stripped);
-    debug('config loaded');
-}
-catch (err) {
-    console.log('could not find file or parse the content:');
-    console.error(err);
-    process.exit(1);
+  var filecontent = fs.readFileSync(configfile);
+  var stripped = stripJsonComments(filecontent.toString('utf8'));
+  config = JSON.parse(stripped);
+  debug('config loaded');
+} catch (err) {
+  console.log('could not find file or parse the content:');
+  console.error(err);
+  process.exit(1);
 }
 
 if (!config) {
-    console.error("Could not find a proper config");
-    process.exit(1);
+  console.error("Could not find a proper config");
+  process.exit(1);
 }
 
 var xmpp = null;
 switch (config.type) {
-    case 'S2S' :
-        xmpp = new SmtpS2S(config);
-        break;
+case 'S2S':
+  xmpp = new SmtpS2S(config);
+  break;
 
-    case 'COMPONENT' :
-        xmpp = new SmtpComponent(config);
-        break;
-    default:
-        console.error('could not find a suitable implementation for: ' + config.type );
-        break;
+case 'COMPONENT':
+  xmpp = new SmtpComponent(config);
+  break;
+default:
+  console.error('could not find a suitable implementation for: ' + config.type);
+  break;
 }
 
 // only start if we found an implementation
 if (xmpp) {
-    debug('start server');
-    xmpp.configure().then(function(){
-        return xmpp.start();
-    }).then(function(){
-        // establish event pipe
-        xmpp.chain(new Mailer(config));
-    }).catch(function(err){
-        // display error
-        console.error(err);
-    });
+  debug('start server');
+  xmpp.configure().then(function () {
+    return xmpp.start();
+  }).then(function () {
+    // establish event pipe
+    xmpp.chain(new Mailer(config));
+  }).catch(function (err) {
+    // display error
+    console.error(err);
+  });
 }
 
 process.on('exit', function () {
-    if (xmpp) {
-        xmpp.stop();
-    }
+  if (xmpp) {
+    xmpp.stop();
+  }
 });
-
