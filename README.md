@@ -100,6 +100,7 @@ If you would like to send emails directy from your xmpp client, configure the us
 ## Author
 
 - Christoph Hartmann
+- Sessionbird GmbH
 
 ## License
 
