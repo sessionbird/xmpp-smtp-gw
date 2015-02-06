@@ -1,6 +1,6 @@
 # XMPP SMTP Gateway
 
-[![build status](https://secure.travis-ci.org/chris-rock/xmpp-smtp-gw.png)](http://travis-ci.org/chris-rock/xmpp-smtp-gw)
+[![build status](https://secure.travis-ci.org/sessionbird/xmpp-smtp-gw.png)](http://travis-ci.org/chris-rock/xmpp-smtp-gw)
 
 A xmpp gateway to send emails from your xmpp messenger.
 
