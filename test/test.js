@@ -45,11 +45,11 @@ describe('XMPP SMTP Gateway', function () {
     var stanza = ltx.parse(message);
 
     var mailer = new Mailer(config);
-    mailer.on('jsonstanza', function (mail) {
+    mailer.on('message', function (mail) {
       assert.equal(mail.from, 'juliet@example.com/balcony');
       assert.equal(mail.to, 'romeo@example.net');
       assert.equal(mail.type, 'chat');
-      assert.equal(mail.body, 'Wherefore art thou, Romeo?');
+      assert.equal(mail.text, 'Wherefore art thou, Romeo?');
       done();
     });
     mailer.stanza(stanza);
@@ -85,11 +85,11 @@ describe('XMPP SMTP Gateway', function () {
     var stanza = ltx.parse(message);
 
     var mailer = new Mailer(config);
-    mailer.on('jsonstanza', function (mail) {
+    mailer.on('message', function (mail) {
       assert.equal(mail.from, 'juliet@example.com/balcony');
       assert.equal(mail.to, 'romeo@example.net');
       assert.equal(mail.type, 'chat');
-      assert.equal(mail.body, 'Wherefore art thou, Romeo?');
+      assert.equal(mail.text, 'Wherefore art thou, Romeo?');
       done();
     });
     mailer.stanza(stanza);
@@ -122,12 +122,12 @@ describe('XMPP SMTP Gateway', function () {
     var stanza = ltx.parse(message);
 
     var mailer = new Mailer(config);
-    mailer.on('jsonstanza', function (mail) {
+    mailer.on('message', function (mail) {
       assert.equal(mail.from, 'juliet@example.com/balcony');
       assert.equal(mail.to, 'romeo@example.net');
       assert.equal(mail.type, 'chat');
       assert.equal(mail.subject, 'I implore you!');
-      assert.equal(mail.body, 'Wherefore art thou, Romeo?');
+      assert.equal(mail.text, 'Wherefore art thou, Romeo?');
       done();
     });
     mailer.stanza(stanza);
@@ -178,12 +178,12 @@ describe('XMPP SMTP Gateway', function () {
     var stanza = ltx.parse(message);
 
     var mailer = new Mailer(config);
-    mailer.on('jsonstanza', function (mail) {
+    mailer.on('message', function (mail) {
       assert.equal(mail.from, 'juliet@example.com/balcony');
       assert.equal(mail.to, 'romeo@example.net');
       assert.equal(mail.type, 'chat');
       assert.equal(mail.subject, 'I implore you!');
-      assert.equal(mail.body, 'Wherefore art thou, Romeo?');
+      assert.equal(mail.text, 'Wherefore art thou, Romeo?');
       done();
     });
     mailer.stanza(stanza);
@@ -225,11 +225,11 @@ describe('XMPP SMTP Gateway', function () {
     var stanza = ltx.parse(message);
 
     var mailer = new Mailer(config);
-    mailer.on('jsonstanza', function (mail) {
+    mailer.on('message', function (mail) {
       assert.equal(mail.from, 'juliet@example.com/balcony');
       assert.equal(mail.to, 'romeo@example.net');
       assert.equal(mail.type, 'chat');
-      assert.equal(mail.body, 'Wherefore art thou, Romeo?');
+      assert.equal(mail.text, 'Wherefore art thou, Romeo?');
 
       var html = "<body xmlns='http://www.w3.org/1999/xhtml'> \
              <p>Wherefore <span style='font-style: italic'>art</span> \
@@ -286,12 +286,12 @@ describe('XMPP SMTP Gateway', function () {
     var stanza = ltx.parse(message);
 
     var mailer = new Mailer(config);
-    mailer.on('jsonstanza', function (mail) {
+    mailer.on('message', function (mail) {
       assert.equal(mail.from, 'juliet@example.com/balcony');
       assert.equal(mail.to, 'romeo@example.net');
       assert.equal(mail.type, 'chat');
       assert.equal(mail.subject, 'I implore you!');
-      assert.equal(mail.body, 'Wherefore art thou, Romeo?');
+      assert.equal(mail.text, 'Wherefore art thou, Romeo?');
 
       var html = "<body xmlns='http://www.w3.org/1999/xhtml'> \
              <p>Wherefore <span style='font-style: italic'>art</span> \
@@ -322,11 +322,11 @@ describe('XMPP SMTP Gateway', function () {
     var stanza = ltx.parse(message);
 
     var mailer = new Mailer(config);
-    mailer.on('jsonstanza', function (mail) {
+    mailer.on('message', function (mail) {
       assert.equal(mail.from, 'juliet@example.com/balcony');
       assert.equal(mail.to, 'romeo\\40example.com.com@smtp.example.com');
       assert.equal(mail.subject, 'I implore you!');
-      assert.equal(mail.body, 'Wherefore art thou, Romeo?');
+      assert.equal(mail.text, 'Wherefore art thou, Romeo?');
 
       done();
     });
